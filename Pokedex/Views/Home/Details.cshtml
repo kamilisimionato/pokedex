@@ -12,14 +12,27 @@
 
 <section class="pt-5 container">
     <div class="row">
-       <div class="col text-center">
-            <a href="#" class="btn btn-lg btn-outline-dark">001 - Bulbasaur</a>
+        <div class="col text-center">
+            @if (Model.Anterior != null)
+            {
+                <a asp-action="Details" asp-route-id="@Model.Anterior.Numero" class="btn btn-lg btn-outline-dark">
+                    @Model.Anterior.Numero.ToString("000") - @Model.Anterior.Nome
+                </a>
+            }
+        </div>
+
+        <div class="col text-center">
+            <h1 class ="fs-1">@Model.Atual.Nome
+                <span class="fs-2 text-secondary">Nº @Model.Atual.Numero.ToString("000")</span>
+            </h1>
         </div>
         <div class="col text-center">
-            <h1 class="fs-1">@Model.Atual.Nome <span class="fs-2 text-secondary">Nº @Model.Numero.ToString("000")</span></h1>
-        </div>
-           <div class="col text-center">
-            <a href="#" class="btn btn-lg btn-outline-dark">003 - Venusaur</a>
+            @if (Model.Proximo != null)
+            {
+                <a asp-action="Details" asp-route-id="@Model.Proximo.Numero" class="btn btn-lg btn-outline-dark">
+                    @Model.Proximo.Numero.ToString("000") - @Model.Proximo.Nome
+                </a>
+            }
         </div>
     </div>
 
